@@ -32,7 +32,7 @@ def hours_difference(time_1, time_2):
     >>> hours_difference(1800.0, 1800.0)
     0.0
     """
-    return time_2/3600 - time_1/3600
+    return (time_2 - time_1)/3600
 
 
 
@@ -51,6 +51,7 @@ def to_float_hours(hours, minutes, seconds):
     >>> to_float_hours(1, 0, 36)
     1.01
     """
+    return hours + minutes/60 + seconds/3600
 
 
 
@@ -79,17 +80,42 @@ def to_24_hour_clock(hours):
 
 
 ### Write your get_hours function definition here:
-
-
+def get_hours(seconds):
+    """(int) -> int
+    
+    Return the number of hours converted from number of seconds.
+    
+    >>> get_hours(3800)
+    1
+    >>> get_hours(7500)
+    2
+    """
+    return (seconds//3600) % 24
 
 
 ### Write your get_minutes function definition here:
-
+def get_minutes(seconds):
+    """(int) -> int
+    
+    Return the number of minutes converted from number of seconds.
+    
+    >>> get_minutes(3800)
+    3
+    """
+    return (seconds//60) % 60
 
 
 
 ### Write your get_seconds function definition here:
+def get_seconds(seconds):
+    """(int) -> int
 
+    Return the number of seconds converted from number of seconds.
+    
+    >>> get_seconds(3800)
+    20
+    """
+    return seconds % 60
 
 
 
